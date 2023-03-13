@@ -5,7 +5,7 @@ SDK：11
 
 springboot：2.7
 
-# 启动项目
+# 二、启动项目
 1、启动数据库
 ```agsl
 // dockerfile目录下执行
