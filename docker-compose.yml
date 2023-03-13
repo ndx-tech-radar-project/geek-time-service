@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  mysqldb:
+    image: mysql:8.0
+    restart: always
+    container_name: geek_service_db
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "geek_service"
+    ports:
+      - "13306:3306"
