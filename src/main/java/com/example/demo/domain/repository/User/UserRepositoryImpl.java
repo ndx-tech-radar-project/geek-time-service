@@ -1,4 +1,4 @@
-package com.example.demo.domain.repository;
+package com.example.demo.domain.repository.User;
 
 import com.example.demo.domain.mapper.UserMapper;
 import com.example.demo.domain.modle.User;
