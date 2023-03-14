@@ -1,7 +1,7 @@
 package com.example.demo.domain.mapper;
 
 import com.example.demo.domain.modle.User;
-import com.example.demo.domain.repository.UserEntity;
+import com.example.demo.domain.Entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;

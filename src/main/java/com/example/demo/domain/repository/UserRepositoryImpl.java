@@ -13,11 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserRepositoryImpl implements UserRepository {
 
-    private final UserJpaRepository userJpaRepository;
+    private final UserRepositoryJpa userRepositoryJpa;
 
 
     @Override
     public List<User> findAll() {
-        return UserMapper.MAPPER.toModel(userJpaRepository.findAll());
+        return UserMapper.MAPPER.toModel(userRepositoryJpa.findAll());
     }
 }
