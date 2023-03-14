@@ -1,4 +1,4 @@
-package com.example.demo.domain.modle;
+package com.example.demo.domain.modle.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

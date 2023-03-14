@@ -1,6 +1,6 @@
 package com.example.demo.domain.service;
 
-import com.example.demo.domain.modle.User;
+import com.example.demo.domain.modle.User.User;
 import com.example.demo.domain.repository.User.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

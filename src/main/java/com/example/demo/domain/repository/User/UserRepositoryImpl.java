@@ -1,7 +1,7 @@
 package com.example.demo.domain.repository.User;
 
 import com.example.demo.domain.mapper.UserMapper;
-import com.example.demo.domain.modle.User;
+import com.example.demo.domain.modle.User.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
