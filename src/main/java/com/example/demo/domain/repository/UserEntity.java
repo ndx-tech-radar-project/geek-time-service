@@ -24,5 +24,6 @@ public class UserEntity {
 
     private String email;
 
+    @Column(name = "class_id")
     private Long classId;
 }

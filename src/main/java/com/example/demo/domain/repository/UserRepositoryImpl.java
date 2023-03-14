@@ -1,5 +1,6 @@
 package com.example.demo.domain.repository;
 
+import com.example.demo.domain.mapper.UserMapper;
 import com.example.demo.domain.modle.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,9 +18,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public List<User> findAll() {
-        User user1 = new User(1L, "user1", 12, "137836@qq.com", 2L);
-//        memberJpaRepository.save(memberEntity);
-//        return userJpaRepository.findAll();
-        return List.of(user1);
+        return UserMapper.MAPPER.toModel(userJpaRepository.findAll());
     }
 }
