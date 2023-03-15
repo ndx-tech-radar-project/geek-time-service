@@ -20,4 +20,16 @@ public class UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    public Boolean createUser(User user) {
+        return userRepository.createUser(user);
+    }
+
+    public Boolean updateUser(User user) {
+        return userRepository.updateUser(user);
+    }
+
+    public Boolean deleteUser(Long id) {
+        return userRepository.deleteUser(id);
+    }
 }

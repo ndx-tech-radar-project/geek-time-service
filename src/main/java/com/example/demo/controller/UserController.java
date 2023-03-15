@@ -4,10 +4,7 @@ import com.example.demo.domain.modle.User.User;
 import com.example.demo.domain.service.UserService;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,8 +22,34 @@ public class UserController {
     }
 
     @PostMapping("/api/user")
-    public Result<?> createUser(User user) {
-        return Result.ok().build();
+    public Result<?> createUser(@RequestBody User user) {
+        Boolean result = userService.createUser(user);
+        if (result) {
+            return Result.ok().build();
+        } else {
+            return Result.error().build();
+        }
+    }
+
+    @PutMapping("/api/user/{id}")
+    public Result<?> updateUser(@PathVariable("id") Long id, @RequestBody User user) {
+        user.setId(id);
+        Boolean result = userService.updateUser(user);
+        if (result) {
+            return Result.ok().build();
+        } else {
+            return Result.error().build();
+        }
+    }
+
+    @DeleteMapping("/api/user/{id}")
+    public Result<?> deleteUser(@PathVariable("id") Long id) {
+        Boolean result = userService.deleteUser(id);
+        if (result) {
+            return Result.ok().build();
+        } else {
+            return Result.error().build();
+        }
     }
 
 }

@@ -20,4 +20,20 @@ public class UserRepositoryImpl implements UserRepository {
     public List<User> findAll() {
         return UserMapper.MAPPER.toModel(userRepositoryJpa.findAll());
     }
+
+    @Override
+    public Boolean createUser(User user) {
+        return userRepositoryJpa.save(UserMapper.MAPPER.toEntity(user)) != null;
+    }
+
+    @Override
+    public Boolean updateUser(User user) {
+        return userRepositoryJpa.save(UserMapper.MAPPER.toEntity(user)) != null;
+    }
+
+    @Override
+    public Boolean deleteUser(Long id) {
+        userRepositoryJpa.deleteById(id);
+        return true;
+    }
 }

@@ -16,4 +16,6 @@ public interface UserMapper {
     User toModel(UserEntity entity);
 
     List<User> toModel(List<UserEntity> entity);
+
+    UserEntity toEntity(User model);
 }

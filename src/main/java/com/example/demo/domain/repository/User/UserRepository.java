@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface UserRepository {
     List<User> findAll();
+
+    Boolean createUser(User user);
+
+    Boolean updateUser(User user);
+
+    Boolean deleteUser(Long id);
 }
