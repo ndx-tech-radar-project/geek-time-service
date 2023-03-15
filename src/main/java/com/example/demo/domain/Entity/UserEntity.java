@@ -13,7 +13,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
-public class UserEntity {
+@Where(clause = BaseEntity.SKIP_DELETED_CLAUSE)
+@SQLDelete(sql = "update user set deleted = true where id =? and version = ?")
+public class UserEntity extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
