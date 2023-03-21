@@ -3,5 +3,10 @@ spring:
     url: jdbc:mysql://localhost:13306/geek_service
     username: root
     password: password
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
 server:
   port: 8888
