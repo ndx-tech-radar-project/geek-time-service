@@ -3,6 +3,7 @@ package com.example.demo.domain.mapper;
 import com.example.demo.domain.Entity.CourseEntity;
 import com.example.demo.domain.Entity.UserEntity;
 import com.example.demo.domain.modle.Course.Course;
+import com.example.demo.domain.modle.User.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -15,4 +16,7 @@ public interface CourseMapper {
     CourseMapper MAPPER = Mappers.getMapper(CourseMapper.class);
 
     List<Course> toModel(List<CourseEntity> entity);
+
+    CourseEntity toEntity(Course model);
+
 }

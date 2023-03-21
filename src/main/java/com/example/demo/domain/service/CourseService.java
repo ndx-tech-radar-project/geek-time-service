@@ -18,4 +18,16 @@ public class CourseService {
     public List<Course> findAll() {
         return courseRepository.findAll();
     }
+
+    public boolean createCourse(Course course) {
+        return courseRepository.createCourse(course);
+    }
+
+    public boolean updateCourse(Course course) {
+        return courseRepository.updateCourse(course);
+    }
+
+    public boolean deleteCourse(Long id) {
+        return courseRepository.deleteCourseById(id);
+    }
 }

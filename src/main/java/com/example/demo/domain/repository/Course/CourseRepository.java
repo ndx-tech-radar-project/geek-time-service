@@ -7,4 +7,10 @@ import java.util.List;
 public interface CourseRepository {
 
     List<Course> findAll();
+
+    boolean createCourse(Course course);
+
+    boolean updateCourse(Course course);
+
+    boolean deleteCourseById(Long id);
 }

@@ -12,7 +12,7 @@ import java.util.List;
 @Slf4j
 @Repository
 @RequiredArgsConstructor
-public class CourseRepositoryImpl implements CourseRepository{
+public class CourseRepositoryImpl implements CourseRepository {
 
 
     private final CourseRepositoryJpa courseRepositoryJpa;
@@ -20,5 +20,26 @@ public class CourseRepositoryImpl implements CourseRepository{
     @Override
     public List<Course> findAll() {
         return CourseMapper.MAPPER.toModel(courseRepositoryJpa.findAll());
+    }
+
+    @Override
+    public boolean createCourse(Course course) {
+        return courseRepositoryJpa.save(CourseMapper.MAPPER.toEntity(course)) != null;
+    }
+
+    @Override
+    public boolean updateCourse(Course course) {
+        return courseRepositoryJpa.save(CourseMapper.MAPPER.toEntity(course)) != null;
+    }
+
+    @Override
+    public boolean deleteCourseById(Long id) {
+        try {
+            courseRepositoryJpa.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            log.error("delete course error", e);
+            return false;
+        }
     }
 }

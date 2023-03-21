@@ -17,6 +17,7 @@ import javax.persistence.*;
 @SQLDelete(sql = "update course set deleted = true where id =? and version = ?")
 public class CourseEntity extends BaseEntity{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "course_name")
