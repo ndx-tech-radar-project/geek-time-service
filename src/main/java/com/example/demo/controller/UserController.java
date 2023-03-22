@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.modle.User.User;
-import com.example.demo.domain.modle.User.UserRegisterRequest;
+import com.example.demo.domain.modle.User.UserLoginRequest;
 import com.example.demo.domain.service.UserService;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +55,8 @@ public class UserController {
     }
 
     @PostMapping("/api/user/register")
-    public Result<?> requestUser(@RequestBody UserRegisterRequest userRegisterRequest) {
-        Boolean result = userService.requestUser(userRegisterRequest);
+    public Result<?> requestUser(@RequestBody UserLoginRequest userLoginRequest) {
+        Boolean result = userService.requestUser(userLoginRequest);
         if (result) {
             return Result.ok().build();
         } else {
@@ -65,8 +65,8 @@ public class UserController {
     }
 
     @PostMapping("/api/user/login")
-    public Result<?> login(@RequestBody UserRegisterRequest userRegisterRequest, HttpServletRequest request) {
-        Boolean result = userService.login(userRegisterRequest);
+    public Result<?> login(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
+        Boolean result = userService.login(userLoginRequest);
         if (result) {
             return Result.ok().build();
         } else {
