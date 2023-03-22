@@ -7,6 +7,7 @@ import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -56,6 +57,16 @@ public class UserController {
     @PostMapping("/api/user/register")
     public Result<?> requestUser(@RequestBody UserRegisterRequest userRegisterRequest) {
         Boolean result = userService.requestUser(userRegisterRequest);
+        if (result) {
+            return Result.ok().build();
+        } else {
+            return Result.error().build();
+        }
+    }
+
+    @PostMapping("/api/user/login")
+    public Result<?> login(@RequestBody UserRegisterRequest userRegisterRequest, HttpServletRequest request) {
+        Boolean result = userService.login(userRegisterRequest);
         if (result) {
             return Result.ok().build();
         } else {

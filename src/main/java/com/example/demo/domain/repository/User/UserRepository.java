@@ -14,4 +14,6 @@ public interface UserRepository {
     Boolean deleteUser(Long id);
 
     boolean exist(String name);
+
+    User findByName(String name);
 }

@@ -42,4 +42,9 @@ public class UserRepositoryImpl implements UserRepository {
         return userRepositoryJpa.existsByName(name);
     }
 
+    @Override
+    public User findByName(String name) {
+        return UserMapper.MAPPER.toModel(userRepositoryJpa.findByName(name));
+    }
+
 }

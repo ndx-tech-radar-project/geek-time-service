@@ -17,4 +17,5 @@ public class User {
     private Long classId;
     private String createdAt;
     private String nickname;
+    private String password;
 }
