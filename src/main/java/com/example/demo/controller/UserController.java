@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.modle.User.User;
+import com.example.demo.domain.modle.User.UserRegisterRequest;
 import com.example.demo.domain.service.UserService;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,16 @@ public class UserController {
     @DeleteMapping("/api/user/{id}")
     public Result<?> deleteUser(@PathVariable("id") Long id) {
         Boolean result = userService.deleteUser(id);
+        if (result) {
+            return Result.ok().build();
+        } else {
+            return Result.error().build();
+        }
+    }
+
+    @PostMapping("/api/user/register")
+    public Result<?> requestUser(@RequestBody UserRegisterRequest userRegisterRequest) {
+        Boolean result = userService.requestUser(userRegisterRequest);
         if (result) {
             return Result.ok().build();
         } else {

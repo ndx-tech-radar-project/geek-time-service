@@ -16,4 +16,5 @@ public class User {
     private String email;
     private Long classId;
     private String createdAt;
+    private String nickname;
 }

@@ -36,4 +36,10 @@ public class UserRepositoryImpl implements UserRepository {
         userRepositoryJpa.deleteById(id);
         return true;
     }
+
+    @Override
+    public boolean exist(String name) {
+        return userRepositoryJpa.existsByName(name);
+    }
+
 }

@@ -12,4 +12,6 @@ public interface UserRepository {
     Boolean updateUser(User user);
 
     Boolean deleteUser(Long id);
+
+    boolean exist(String name);
 }

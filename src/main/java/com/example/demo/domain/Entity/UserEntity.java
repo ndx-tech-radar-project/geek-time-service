@@ -21,6 +21,7 @@ public class UserEntity extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_name", length = 16)
     private String name;
 
     private int age;
@@ -29,4 +30,12 @@ public class UserEntity extends BaseEntity{
 
     @Column(name = "class_id")
     private Long classId;
+
+    @Column(length = 60)
+    private String password;
+
+    private String role;
+
+    @Column(name = "nick_name")
+    private String nickname;
 }

@@ -2,6 +2,7 @@ package com.example.demo.domain.mapper;
 
 import com.example.demo.domain.modle.User.User;
 import com.example.demo.domain.Entity.UserEntity;
+import com.example.demo.domain.modle.User.UserRegisterRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -18,4 +19,7 @@ public interface UserMapper {
     List<User> toModel(List<UserEntity> entity);
 
     UserEntity toEntity(User model);
+
+    User toModel(UserRegisterRequest model);
 }
+
