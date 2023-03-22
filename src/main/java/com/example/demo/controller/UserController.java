@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.domain.modle.User.User;
 import com.example.demo.domain.modle.User.UserLoginRequest;
 import com.example.demo.domain.service.UserService;
+import com.example.demo.security.utils.JwtUtils;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
@@ -17,6 +18,9 @@ public class UserController {
 
     @Autowired
     public UserService userService;
+
+    @Autowired
+    private JwtUtils jwtUtils;
 
     @GetMapping("/api/user")
     public Result<List<User>> findAllUsers() {
@@ -77,7 +81,8 @@ public class UserController {
         if (!user.getPassword().equals(md5Password)) {
             return Result.error("密码错误").build();
         }
-        request.getSession().setAttribute("token", user.getId());
+        String token = jwtUtils.createJwtToken(user.getId(), user.getRole(), user.getName());
+        request.getSession().setAttribute("token", token);
         return Result.ok().build();
     }
 

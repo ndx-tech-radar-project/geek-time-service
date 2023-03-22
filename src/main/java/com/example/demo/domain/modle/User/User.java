@@ -18,4 +18,6 @@ public class User {
     private String createdAt;
     private String nickname;
     private String password;
+    private String role;
+
 }
