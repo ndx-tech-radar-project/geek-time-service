@@ -5,10 +5,12 @@ import com.example.demo.domain.modle.User.UserLoginRequest;
 import com.example.demo.domain.service.UserService;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 public class UserController {
@@ -66,12 +68,17 @@ public class UserController {
 
     @PostMapping("/api/user/login")
     public Result<?> login(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
-        Boolean result = userService.login(userLoginRequest);
-        if (result) {
-            return Result.ok().build();
-        } else {
-            return Result.error().build();
+        User user = userService.findByName(userLoginRequest.getName());
+        if (Objects.isNull(user)) {
+            return Result.error("用户不存在").build();
         }
+        String password = userLoginRequest.getPassword();
+        String md5Password = DigestUtils.md5DigestAsHex(password.getBytes());
+        if (!user.getPassword().equals(md5Password)) {
+            return Result.error("密码错误").build();
+        }
+        request.getSession().setAttribute("token", user.getId());
+        return Result.ok().build();
     }
 
 }
