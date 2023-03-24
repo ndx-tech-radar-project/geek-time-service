@@ -1,6 +1,7 @@
 package com.example.demo.domain.repository.Course;
 
 import com.example.demo.domain.modle.Course.Course;
+import com.example.demo.domain.modle.Course.CourseCollectionRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -41,5 +42,11 @@ public class CourseRepositoryImpl implements CourseRepository {
             log.error("delete course error", e);
             return false;
         }
+    }
+
+    @Override
+    public boolean collectionCourse(CourseCollectionRequest courseCollectionRequest) {
+        return true;
+//        return courseRepositoryJpa.collectionCourse(courseCollectionRequest) != null;
     }
 }

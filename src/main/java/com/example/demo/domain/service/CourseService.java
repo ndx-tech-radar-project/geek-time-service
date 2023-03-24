@@ -1,6 +1,8 @@
 package com.example.demo.domain.service;
 
 import com.example.demo.domain.modle.Course.Course;
+import com.example.demo.domain.modle.Course.CourseCollectionRequest;
+import com.example.demo.domain.repository.Collection.CollectionRepository;
 import com.example.demo.domain.repository.Course.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,8 @@ import java.util.List;
 public class CourseService {
 
     private final CourseRepository courseRepository;
+
+    private final CollectionRepository collectionRepository;
 
     public List<Course> findAll() {
         return courseRepository.findAll();
@@ -30,4 +34,5 @@ public class CourseService {
     public boolean deleteCourse(Long id) {
         return courseRepository.deleteCourseById(id);
     }
+
 }

@@ -1,18 +1,27 @@
 package com.example.demo.controller;
 
+import com.example.demo.domain.Entity.UserEntity;
 import com.example.demo.domain.modle.Course.Course;
+import com.example.demo.domain.modle.Course.CourseCollectionRequest;
+import com.example.demo.domain.modle.User.User;
 import com.example.demo.domain.service.CourseService;
+import com.example.demo.security.utils.JwtUtils;
 import com.example.demo.web.common.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CourseController {
 
     @Autowired
     public CourseService courseService;
+
+    @Autowired
+    public JwtUtils jwtUtils;
 
     @GetMapping("/api/course")
     public Result<List<Course>> findAllCourses() {
@@ -51,4 +60,6 @@ public class CourseController {
             return Result.error().build();
         }
     }
+
+
 }

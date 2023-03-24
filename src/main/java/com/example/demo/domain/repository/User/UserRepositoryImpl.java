@@ -1,5 +1,6 @@
 package com.example.demo.domain.repository.User;
 
+import com.example.demo.domain.Entity.UserEntity;
 import com.example.demo.domain.mapper.UserMapper;
 import com.example.demo.domain.modle.User.User;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -47,4 +49,8 @@ public class UserRepositoryImpl implements UserRepository {
         return UserMapper.MAPPER.toModel(userRepositoryJpa.findByName(name));
     }
 
+    @Override
+    public User findById(Long id) {
+        return UserMapper.MAPPER.toModel(userRepositoryJpa.findById(id).orElse(null));
+    }
 }

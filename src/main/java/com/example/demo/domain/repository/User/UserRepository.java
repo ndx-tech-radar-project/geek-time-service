@@ -1,8 +1,10 @@
 package com.example.demo.domain.repository.User;
 
+import com.example.demo.domain.Entity.UserEntity;
 import com.example.demo.domain.modle.User.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepository {
     List<User> findAll();
@@ -16,4 +18,6 @@ public interface UserRepository {
     boolean exist(String name);
 
     User findByName(String name);
+
+    User findById(Long valueOf);
 }

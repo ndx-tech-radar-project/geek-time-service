@@ -83,7 +83,7 @@ public class UserController {
         }
         String token = jwtUtils.createJwtToken(user.getId(), user.getRole(), user.getName());
         request.getSession().setAttribute("token", token);
-        return Result.ok().build();
+        return Result.ok(token).build();
     }
 
 }
