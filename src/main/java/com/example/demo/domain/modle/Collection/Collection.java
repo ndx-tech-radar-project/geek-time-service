@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Collection {
+    private Long id;
     private Long userId;
     private Long courseId;
     private Integer isCollection;

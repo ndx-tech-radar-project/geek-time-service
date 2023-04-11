@@ -18,4 +18,6 @@ public interface CollectionMapper {
 
     CollectionEntity toEntity(Collection model);
 
+    Collection toModel(CollectionEntity entity);
+
 }

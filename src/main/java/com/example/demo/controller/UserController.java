@@ -60,6 +60,7 @@ public class UserController {
         }
     }
 
+    //    注册
     @PostMapping("/api/user/register")
     public Result<?> requestUser(@RequestBody UserLoginRequest userLoginRequest) {
         Boolean result = userService.requestUser(userLoginRequest);
@@ -70,6 +71,7 @@ public class UserController {
         }
     }
 
+    //    登录
     @PostMapping("/api/user/login")
     public Result<?> login(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
         User user = userService.findByName(userLoginRequest.getName());
@@ -82,8 +84,9 @@ public class UserController {
             return Result.error("密码错误").build();
         }
         String token = jwtUtils.createJwtToken(user.getId(), user.getRole(), user.getName());
+        String userId = user.getId().toString();
         request.getSession().setAttribute("token", token);
-        return Result.ok(token).build();
+        return Result.ok(userId).build();
     }
 
 }

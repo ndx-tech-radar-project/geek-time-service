@@ -14,6 +14,15 @@ public class CollectionService {
     private final CollectionRepository collectionRepository;
 
     public boolean collectionCourse(Collection collection) {
+//        Collection newCollection = collectionRepository.getCollectionByUserIdAndCourseId(collection.getUserId(),
+//                collection.getCourseId());
+//        if (newCollection != null) {
+//            collection.setId(newCollection.getId());
+//        }
         return collectionRepository.collectionCourse(collection);
+    }
+
+    public Collection getCollectionByUserIdAndCourseId(Long userId, Long courseId) {
+        return collectionRepository.getCollectionByUserIdAndCourseId(userId, courseId);
     }
 }
